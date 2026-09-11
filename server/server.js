@@ -509,11 +509,17 @@ function startGame(
 
   state.phase = "playing";
 
-  room.state = state;
+room.state = state;
 
-  broadcast(room, {
+for (const player of room.players) {
+
+  send(player.ws, {
 
     type: "game_start",
+
+    player: player.animal,
+
+    room: room.code,
 
     state: clone(state)
 
