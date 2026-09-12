@@ -3618,7 +3618,6 @@ function cpuTakeTurn() {
 
 
 /*
-/*
   CPUが手札から置く
 */
 function cpuPlaceFromHand(
@@ -3915,74 +3914,66 @@ function handleCPUModeCellClick(
 
 
     serverState.board[y][x].push(
-      piece
-    );
-
-
-    serverState.heldPiece =
-      null;
-
-
-    serverState.heldFrom =
-      null;
-
-
-    playSE("put");
-
-
-    const winningCells =
-  findWinningCells(
-    serverState,
-    myAnimal
-  );
-
-
-    if (
-      winningCells.length > 0
-    ) {
-
-      finishCPUVictory(
-  cpuAnimal,
-  winningCells
+serverState.board[y][x].push(
+  piece
 );
 
-      return;
 
-    }
+serverState.heldPiece =
+  null;
 
 
-    const cpuAnimal =
+serverState.heldFrom =
+  null;
+
+
+playSE("put");
+
+
+const cpuAnimal =
   myAnimal === "snake"
     ? "turtle"
     : "snake";
 
+
+const winningCells =
+  findWinningCells(
+    serverState,
+    cpuAnimal
+  );
+
+
+if (
+  winningCells.length > 0
+) {
+
+  finishCPUVictory(
+    cpuAnimal,
+    winningCells
+  );
+
+  return;
+
+}
+
+
 serverState.currentPlayer =
-  cpuAnimal;
+  myAnimal;
 
 
-    serverState.turnNumber++;
+serverState.turnNumber++;
 
 
-    localSelectedHandPieceId =
-      null;
+localSelectedHandPieceId =
+  null;
 
 
-    renderAll();
+renderAll();
 
-    playSE("turn");
-
-
-    setTimeout(
-      () => {
-
-        cpuTakeTurn();
-
-      },
-      700
-    );
+playSE("turn");
 
 
-    return;
+return;
 
   }
 
@@ -4053,31 +4044,32 @@ serverState.currentPlayer =
     playSE("put");
 
 
-    const winningCells =
+const winningCells =
   findWinningCells(
     serverState,
     myAnimal
   );
 
 
-    if (
-      winningCells.length > 0
-    ) {
+if (
+  winningCells.length > 0
+) {
 
-      finishCPUVictory(
-  cpuAnimal,
-  winningCells
-);
+  finishCPUVictory(
+    myAnimal,
+    winningCells
+  );
 
-      return;
+  return;
 
-    }
+}
 
 
-    const cpuAnimal =
+const cpuAnimal =
   myAnimal === "snake"
     ? "turtle"
     : "snake";
+
 
 serverState.currentPlayer =
   cpuAnimal;
@@ -4173,33 +4165,35 @@ serverState.currentPlayer =
     即時勝利
   */
 
-  const revealedWin =
-    findWinningCells(
-      serverState,
-      "turtle"
-    );
+const revealedWin =
+  findWinningCells(
+    serverState,
+    "turtle"
+  );
 
 
-  if (
-    revealedWin.length > 0
-  ) {
+if (
+  revealedWin.length > 0
+) {
 
-    serverState.gameOver =
-      true;
+  serverState.gameOver =
+    true;
 
-    serverState.winningCells =
-      revealedWin;
-
-
-    finishCPUVictory(
-      "turtle",
-      revealedWin
-    );
+  serverState.winningCells =
+    revealedWin;
 
 
-    return;
+  finishCPUVictory(
+    "turtle",
+    revealedWin
+  );
 
-  }
+
+  return;
+
+}
+
+  
 
 
   renderAll();
