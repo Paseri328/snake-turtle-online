@@ -1618,7 +1618,11 @@ function showWaitingScreen() {
 
 function showPlayerSelectScreen() {
 
-  hideAllScreens();
+  function showPlayerSelectScreen() {
+
+  modeSelectArea.classList.add(
+    "hidden"
+  );
 
   playerSelectArea.classList.remove(
     "hidden"
