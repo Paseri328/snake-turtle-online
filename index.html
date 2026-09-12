@@ -3529,13 +3529,13 @@ function cpuTakeTurn() {
 
 
   if (
-    serverState.currentPlayer !==
-    "turtle"
-  ) {
+  serverState.currentPlayer ===
+  myAnimal
+) {
 
-    return;
+  return;
 
-  }
+}
 
 
   const moves =
