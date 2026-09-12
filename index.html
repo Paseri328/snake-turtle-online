@@ -1285,15 +1285,63 @@ function showConnectionError(message) {
    スタート
 ========================================================= */
 
+```js
+const modeSelectArea =
+  document.getElementById("modeSelectArea");
+
+const onlineModeButton =
+  document.getElementById("onlineModeButton");
+
+const cpuModeButton =
+  document.getElementById("cpuModeButton");
+
+const localModeButton =
+  document.getElementById("localModeButton");
+
+
 document
   .getElementById("startButton")
   .addEventListener("click", () => {
 
     playSE("start");
 
-    showOnlineScreen();
+    document
+      .getElementById("startButton")
+      .classList.add("hidden");
+
+    modeSelectArea.classList.remove("hidden");
   });
 
+
+/* オンライン対戦 */
+onlineModeButton.addEventListener(
+  "click",
+  () => {
+
+    showOnlineScreen();
+  }
+);
+
+
+/* CPU対戦 */
+cpuModeButton.addEventListener(
+  "click",
+  () => {
+
+    alert("CPU対戦はこれから作ります！");
+  }
+);
+
+
+/* ローカル対戦 */
+localModeButton.addEventListener(
+  "click",
+  () => {
+
+    alert("ローカル対戦はこれから作ります！");
+  }
+);
+```
 
 /* =========================================================
    部屋作成
