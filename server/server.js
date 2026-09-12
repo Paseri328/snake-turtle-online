@@ -511,20 +511,27 @@ function startGame(
 
 room.state = state;
 
-for (const player of room.players) {
+  for (const player of room.players) {
 
-  send(player.ws, {
+    send(player.ws, {
 
-    type: "game_start",
+      type: "game_start",
 
-    player: player.animal,
+      player: player.animal,
 
-    room: room.code,
+      room: room.code,
 
-    state: clone(state)
+      state: clone(state)
 
-  });
+    });
+  }
+
 }
+
+
+/* =========================================================
+   駒選択
+========================================================= */
 
 
 /* =========================================================
