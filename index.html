@@ -1503,10 +1503,6 @@ function chooseFirstPlayer(choice) {
   });
 }
 
-  function startCPUGame(firstPlayer) {
-
-    function createCPUGameState(firstPlayer) {
-
   const board = [
     [[], [], []],
     [[], [], []],
@@ -1553,7 +1549,11 @@ function chooseFirstPlayer(choice) {
     phase: "playing"
   };
 }
-    
+ 
+  function startCPUGame(firstPlayer) {
+
+    function createCPUGameState(firstPlayer) {
+   
   firstPlayerStatus.textContent =
     "";
 
