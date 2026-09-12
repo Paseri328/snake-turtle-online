@@ -5340,22 +5340,22 @@ function handleCellClick(
   }
 
 
-  /*
-    CPU対戦
-  */
+/*
+  CPU対戦
+*/
 
-  if (
-    roomCode === null
-  ) {
+if (
+  gameMode === "cpu"
+) {
 
-    handleCPUModeCellClick(
-      x,
-      y
-    );
+  handleCPUModeCellClick(
+    x,
+    y
+  );
 
-    return;
+  return;
 
-  }
+}
 
 
   /*
