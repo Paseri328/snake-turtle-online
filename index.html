@@ -3414,8 +3414,13 @@ function chooseNormalCPUMove(
       move.type === "hand"
     ) {
 
-      const piece =
-        serverState.hands.turtle.find(
+      const cpuAnimal =
+  myAnimal === "snake"
+    ? "turtle"
+    : "snake";
+
+const pieces =
+  serverState.hands[cpuAnimal];
           item =>
             item.id ===
             move.pieceId
@@ -3619,8 +3624,13 @@ function cpuPlaceFromHand(
   move
 ) {
 
-  const pieces =
-    serverState.hands.turtle;
+  const cpuAnimal =
+  myAnimal === "snake"
+    ? "turtle"
+    : "snake";
+
+const pieces =
+  serverState.hands[cpuAnimal];
 
 
   const piece =
