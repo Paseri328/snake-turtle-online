@@ -2284,9 +2284,14 @@ function startCPUGame(
     ゲーム開始直後にCPUが指す
   */
 
-  if (
-    firstPlayer === "turtle"
-  ) {
+const cpuAnimal =
+  myAnimal === "snake"
+    ? "turtle"
+    : "snake";
+
+if (
+  firstPlayer === cpuAnimal
+) {
 
     setTimeout(
       () => {
