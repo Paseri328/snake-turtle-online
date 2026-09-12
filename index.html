@@ -3651,8 +3651,13 @@ function cpuPlaceFromHand(
   );
 
 
-  serverState.currentPlayer =
-    "snake";
+  const cpuAnimal =
+  myAnimal === "snake"
+    ? "turtle"
+    : "snake";
+
+serverState.currentPlayer =
+  cpuAnimal;
 
 
   serverState.turnNumber++;
@@ -3786,9 +3791,13 @@ function cpuMoveBoardPiece(
   );
 
 
-  serverState.currentPlayer =
-    "snake";
+  const cpuAnimal =
+  myAnimal === "snake"
+    ? "turtle"
+    : "snake";
 
+serverState.currentPlayer =
+  cpuAnimal;
 
   serverState.turnNumber++;
 
@@ -3935,8 +3944,13 @@ function handleCPUModeCellClick(
     }
 
 
-    serverState.currentPlayer =
-      "turtle";
+    const cpuAnimal =
+  myAnimal === "snake"
+    ? "turtle"
+    : "snake";
+
+serverState.currentPlayer =
+  cpuAnimal;
 
 
     serverState.turnNumber++;
@@ -4053,8 +4067,13 @@ function handleCPUModeCellClick(
     }
 
 
-    serverState.currentPlayer =
-      "turtle";
+    const cpuAnimal =
+  myAnimal === "snake"
+    ? "turtle"
+    : "snake";
+
+serverState.currentPlayer =
+  cpuAnimal;
 
 
     serverState.turnNumber++;
