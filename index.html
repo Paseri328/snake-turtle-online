@@ -2588,8 +2588,13 @@ function getCPUMoves() {
     手札から置く手
   */
 
-  const cpuHand =
-    state.hands.turtle;
+const cpuAnimal =
+  myAnimal === "snake"
+    ? "turtle"
+    : "snake";
+
+const cpuHand =
+  state.hands[cpuAnimal];
 
 
   for (
@@ -2692,10 +2697,10 @@ function getCPUMoves() {
         ];
 
 
-      if (
-        piece.animal !==
-        "turtle"
-      ) {
+    if (
+  piece.animal !==
+  cpuAnimal
+) {
 
         continue;
 
@@ -2721,11 +2726,16 @@ function getCPUMoves() {
       ].pop();
 
 
-      const revealedWin =
-        findWinningCells(
-          testState,
-          "snake"
-        );
+  const opponentAnimal =
+  cpuAnimal === "snake"
+    ? "turtle"
+    : "snake";
+
+const revealedWin =
+  findWinningCells(
+    testState,
+    opponentAnimal
+  );
 
 
       if (
