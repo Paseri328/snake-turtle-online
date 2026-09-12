@@ -1967,41 +1967,54 @@ function chooseFirstPlayer(
   */
 
   if (
-    roomCode === null
+  gameMode === "cpu"
+) {
+
+  let firstPlayer;
+
+
+  if (
+    choice === "random"
   ) {
 
-    let firstPlayer;
+    firstPlayer =
+      Math.random() < 0.5
+        ? "snake"
+        : "turtle";
 
+  } else {
 
-    if (
-      choice === "random"
-    ) {
-
-      firstPlayer =
-        Math.random() < 0.5
-          ? "snake"
-          : "turtle";
-
-    } else {
-
-      firstPlayer =
-        choice;
-
-    }
-
-
-    myAnimal =
-      "snake";
-
-
-    startCPUGame(
-      firstPlayer
-    );
-
-
-    return;
+    firstPlayer =
+      choice;
 
   }
+
+
+  if (
+    selectedPlayer === "random"
+  ) {
+
+    myAnimal =
+      Math.random() < 0.5
+        ? "snake"
+        : "turtle";
+
+  } else {
+
+    myAnimal =
+      selectedPlayer;
+
+  }
+
+
+  startCPUGame(
+    firstPlayer
+  );
+
+
+  return;
+
+}
 
 
   /*
