@@ -1662,7 +1662,7 @@ onlineModeButton.addEventListener(
   "click",
   () => {
 
-    showOnlineScreen();
+    showPlayerSelectScreen();
 
   }
 );
@@ -1674,21 +1674,13 @@ cpuModeButton.addEventListener(
   "click",
   () => {
 
-    myAnimal =
-      "snake";
-
     roomCode =
       null;
 
     isCreator =
       true;
 
-    showFirstPlayerScreen();
-
-    firstPlayerStatus.textContent =
-      "CPUの強さを選んでください。";
-
-    showCPUDifficultyButtons();
+    showPlayerSelectScreen();
 
   }
 );
@@ -1700,9 +1692,7 @@ localModeButton.addEventListener(
   "click",
   () => {
 
-    alert(
-      "ローカル対戦はこれから作ります！"
-    );
+    showPlayerSelectScreen();
 
   }
 );
