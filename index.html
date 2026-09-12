@@ -1482,6 +1482,29 @@ function chooseFirstPlayer(choice) {
 
     startCPUGame(firstPlayer);
 
+  
+    return;
+  }
+
+
+  /*
+    オンライン対戦の場合
+  */
+  if (!isCreator) {
+    return;
+  }
+
+  firstPlayerStatus.textContent =
+    "先攻を決定しています……";
+
+  sendMessage({
+    type: "choose_first",
+    firstPlayer: choice
+  });
+}
+
+  function startCPUGame(firstPlayer) {
+
     function createCPUGameState(firstPlayer) {
 
   const board = [
@@ -1530,28 +1553,7 @@ function chooseFirstPlayer(choice) {
     phase: "playing"
   };
 }
-    return;
-  }
-
-
-  /*
-    オンライン対戦の場合
-  */
-  if (!isCreator) {
-    return;
-  }
-
-  firstPlayerStatus.textContent =
-    "先攻を決定しています……";
-
-  sendMessage({
-    type: "choose_first",
-    firstPlayer: choice
-  });
-}
-
-  function startCPUGame(firstPlayer) {
-
+    
   firstPlayerStatus.textContent =
     "";
 
