@@ -1729,7 +1729,64 @@ localModeButton.addEventListener(
   }
 );
 
+/* =========================================================
+   プレイヤー選択
+========================================================= */
 
+const playerSnakeButton =
+  document.getElementById(
+    "playerSnakeButton"
+  );
+
+const playerTurtleButton =
+  document.getElementById(
+    "playerTurtleButton"
+  );
+
+const playerRandomButton =
+  document.getElementById(
+    "playerRandomButton"
+  );
+
+
+playerSnakeButton.addEventListener(
+  "click",
+  () => {
+
+    selectedPlayer =
+      "snake";
+
+    showFirstPlayerScreen();
+
+  }
+);
+
+
+playerTurtleButton.addEventListener(
+  "click",
+  () => {
+
+    selectedPlayer =
+      "turtle";
+
+    showFirstPlayerScreen();
+
+  }
+);
+
+
+playerRandomButton.addEventListener(
+  "click",
+  () => {
+
+    selectedPlayer =
+      "random";
+
+    showFirstPlayerScreen();
+
+  }
+);
+  
 /* =========================================================
    部屋作成
 ========================================================= */
