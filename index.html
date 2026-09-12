@@ -1482,6 +1482,54 @@ function chooseFirstPlayer(choice) {
 
     startCPUGame(firstPlayer);
 
+    function createCPUGameState(firstPlayer) {
+
+  const board = [
+    [[], [], []],
+    [[], [], []],
+    [[], [], []]
+  ];
+
+  const hands = {
+    snake: [],
+    turtle: []
+  };
+
+  let id = 0;
+
+  for (const animal of ["snake", "turtle"]) {
+
+    for (const size of [3, 3, 2, 2, 1, 1]) {
+
+      hands[animal].push({
+        id: `${animal}-${id}`,
+        animal: animal,
+        size: size,
+        used: false
+      });
+
+      id++;
+    }
+  }
+
+  return {
+    board: board,
+    hands: hands,
+
+    currentPlayer: firstPlayer,
+    firstPlayer: firstPlayer,
+
+    turnNumber: 0,
+
+    heldPiece: null,
+    heldFrom: null,
+
+    gameOver: false,
+    winningCells: [],
+
+    phase: "playing"
+  };
+}
     return;
   }
 
