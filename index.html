@@ -1796,7 +1796,32 @@ playerRandomButton.addEventListener(
 
   }
 );
-  
+  document
+  .getElementById("firstTurtle")
+  .addEventListener(
+    "click",
+    () => {
+      startOnlineGame("turtle");
+    }
+  );
+
+document
+  .getElementById("firstSnake")
+  .addEventListener(
+    "click",
+    () => {
+      startOnlineGame("snake");
+    }
+  );
+
+document
+  .getElementById("firstRandom")
+  .addEventListener(
+    "click",
+    () => {
+      startOnlineGame("random");
+    }
+  );
 /* =========================================================
    部屋作成
 ========================================================= */
