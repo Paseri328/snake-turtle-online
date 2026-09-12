@@ -1459,6 +1459,36 @@ document
 
 function chooseFirstPlayer(choice) {
 
+  /*
+    CPU対戦の場合
+  */
+  if (roomCode === null) {
+
+    let firstPlayer;
+
+    if (choice === "random") {
+
+      firstPlayer =
+        Math.random() < 0.5
+          ? "snake"
+          : "turtle";
+
+    } else {
+
+      firstPlayer = choice;
+    }
+
+    myAnimal = "snake";
+
+    startCPUGame(firstPlayer);
+
+    return;
+  }
+
+
+  /*
+    オンライン対戦の場合
+  */
   if (!isCreator) {
     return;
   }
@@ -1472,6 +1502,38 @@ function chooseFirstPlayer(choice) {
   });
 }
 
+  function startCPUGame(firstPlayer) {
+
+  firstPlayerStatus.textContent =
+    "";
+
+  serverState =
+    createCPUGameState(firstPlayer);
+
+  localSelectedHandPieceId = null;
+
+  resultOverlay.classList.add("hidden");
+
+  victorySequenceRunning = false;
+
+  showGameScreen();
+
+  playSE("start");
+  playBGM();
+
+  renderAll();
+
+  /*
+    CPUが先攻なら、
+    ゲーム開始直後にCPUが指す
+  */
+  if (firstPlayer === "turtle") {
+
+    setTimeout(() => {
+      cpuTakeTurn();
+    }, 700);
+  }
+}
 
 /* =========================================================
    サーバーメッセージ
