@@ -4114,14 +4114,13 @@ console.log(
     playSE("turn");
 
 
-    setTimeout(
-      () => {
-
-        cpuTakeTurn();
-
-      },
-      700
-    );
+   setTimeout(
+  () => {
+    console.log("CPUターン実行！");
+    cpuTakeTurn();
+  },
+  700
+);
 
 
     return;
