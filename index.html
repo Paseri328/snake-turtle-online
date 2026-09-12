@@ -3618,6 +3618,7 @@ function cpuTakeTurn() {
 
 
 /*
+/*
   CPUが手札から置く
 */
 function cpuPlaceFromHand(
@@ -3625,12 +3626,13 @@ function cpuPlaceFromHand(
 ) {
 
   const cpuAnimal =
-  myAnimal === "snake"
-    ? "turtle"
-    : "snake";
+    myAnimal === "snake"
+      ? "turtle"
+      : "snake";
 
-const pieces =
-  serverState.hands[cpuAnimal];
+
+  const pieces =
+    serverState.hands[cpuAnimal];
 
 
   const piece =
@@ -3661,13 +3663,8 @@ const pieces =
   );
 
 
-  const cpuAnimal =
-  myAnimal === "snake"
-    ? "turtle"
-    : "snake";
-
-serverState.currentPlayer =
-  cpuAnimal;
+  serverState.currentPlayer =
+    myAnimal;
 
 
   serverState.turnNumber++;
@@ -3681,10 +3678,10 @@ serverState.currentPlayer =
 
 
   const winningCells =
-  findWinningCells(
-    serverState,
-    myAnimal
-  );
+    findWinningCells(
+      serverState,
+      cpuAnimal
+    );
 
 
   if (
@@ -3692,9 +3689,9 @@ serverState.currentPlayer =
   ) {
 
     finishCPUVictory(
-  cpuAnimal,
-  winningCells
-);
+      cpuAnimal,
+      winningCells
+    );
 
     return;
 
