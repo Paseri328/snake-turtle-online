@@ -1326,11 +1326,19 @@ cpuModeButton.addEventListener(
   "click",
   () => {
 
-    alert("CPU対戦はこれから作ります！");
+    myAnimal = "snake";
+    roomCode = null;
+    isCreator = true;
+
+    showFirstPlayerScreen();
+
+    firstPlayerStatus.textContent =
+      "先攻を選んでください。";
+
+    enableFirstPlayerButtons();
   }
 );
-
-
+  
 /* ローカル対戦 */
 localModeButton.addEventListener(
   "click",
