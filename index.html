@@ -3421,10 +3421,13 @@ function chooseNormalCPUMove(
 
 const pieces =
   serverState.hands[cpuAnimal];
-          item =>
-            item.id ===
-            move.pieceId
-        );
+
+const piece =
+  pieces.find(
+    item =>
+      item.id ===
+      move.pieceId
+  );
 
 
       if (piece) {
