@@ -3914,63 +3914,75 @@ function handleCPUModeCellClick(
 
 
     serverState.board[y][x].push(
-serverState.board[y][x].push(
-  piece
-);
+      piece
+    );
 
 
-serverState.heldPiece =
-  null;
+    serverState.heldPiece =
+      null;
 
 
-serverState.heldFrom =
-  null;
+    serverState.heldFrom =
+      null;
 
 
-playSE("put");
+    playSE("put");
 
 
-const cpuAnimal =
-  myAnimal === "snake"
-    ? "turtle"
-    : "snake";
+    const winningCells =
+      findWinningCells(
+        serverState,
+        myAnimal
+      );
 
 
-const winningCells =
-  findWinningCells(
-    serverState,
-    cpuAnimal
-  );
+    if (
+      winningCells.length > 0
+    ) {
+
+      finishCPUVictory(
+        myAnimal,
+        winningCells
+      );
+
+      return;
+
+    }
 
 
-if (
-  winningCells.length > 0
-) {
-
-  finishCPUVictory(
-    cpuAnimal,
-    winningCells
-  );
-
-  return;
-
-}
+    const cpuAnimal =
+      myAnimal === "snake"
+        ? "turtle"
+        : "snake";
 
 
-serverState.currentPlayer =
-  myAnimal;
+    serverState.currentPlayer =
+      cpuAnimal;
 
 
-serverState.turnNumber++;
+    serverState.turnNumber++;
 
 
-localSelectedHandPieceId =
-  null;
+    localSelectedHandPieceId =
+      null;
 
 
-renderAll();
+    renderAll();
 
-playSE("turn");
+    playSE("turn");
+
+
+    setTimeout(
+      () => {
+
+        cpuTakeTurn();
+
+      },
+      700
+    );
+
+
+    return;
 
 
 return;
