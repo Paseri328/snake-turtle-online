@@ -3976,11 +3976,11 @@ function handleCPUModeCellClick(
   ) {
 
     const piece =
-      serverState.hands.snake.find(
-        item =>
-          item.id ===
-          localSelectedHandPieceId
-      );
+  serverState.hands[myAnimal].find(
+    item =>
+      item.id ===
+      localSelectedHandPieceId
+  );
 
 
     if (!piece) {
